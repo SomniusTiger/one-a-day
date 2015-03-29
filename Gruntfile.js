@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
         watch: {
             all: {
-                files: ['style/scss/*.scss', 'style/scss/**/*.scss', 'html/theme.html', 'script/*.js'],
+                files: ['style/scss/*.scss', 'style/scss/**/*.scss', 'html/theme.html', 'script/*.js', 'script/**/*.js'],
                 tasks: ['clean', 'sass', 'cssmin', 'concat', 'uglify', 'htmlbuild'],
                 options: {
                     spawn: false
@@ -43,6 +43,7 @@ module.exports = function(grunt) {
         concat: {
             app: {
                 src: [
+                    'script/lib/jquery-2.1.3.min.js',
                     'script/master.js'
                 ],
                 dest: 'script/master.min.js'
@@ -70,7 +71,7 @@ module.exports = function(grunt) {
                         inline: 'style/css/master.min.css'
                     },
                     scripts: {
-                        main: 'script/master.js'
+                        main: 'script/master.min.js'
                     }
                 }
             }
