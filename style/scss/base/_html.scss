@@ -1,3 +1,10 @@
 // Base styles for HTML elements
 
+* {
+  @include box-sizing(border-box);
+}
 
+img {
+  height: auto;
+  width: 100%;
+}

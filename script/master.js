@@ -1,13 +1,13 @@
 // Main JS file
 
 var oneaday = new function() {
-    var self = this;
+  var self = this;
 
-    this.init = function() {
-        // Functions to run on init
-    };
+  this.init = function() {
+    // Functions to run on init
+  };
 }
 
 $(function() {
-    oneaday.init();
+  oneaday.init();
 });
