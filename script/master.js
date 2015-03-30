@@ -5,6 +5,11 @@ var oneaday = new function() {
 
   this.init = function() {
     // Functions to run on init
+    self.fitvidsInit();
+  };
+
+  this.fitvidsInit = function() {
+    $('.video-player').fitVids();
   };
 }
 

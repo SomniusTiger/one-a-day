@@ -1,0 +1,59 @@
+// Styles that affect the header at the top
+
+header {
+  margin:{
+    bottom: 35px;
+    left: auto;
+    right: auto;
+    top: 72px;  
+  } 
+  max-width: 800px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  h1#logo {
+    color: $black;
+    font-family: "Roboto Slab", "Helvetica Neue", Arial, sans-serif;
+    font-size: 22px;
+    margin: 0;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        color: lighten($black, 15%);
+      }
+    }
+  }
+
+  .description {
+    color: $grey;
+    font-family: "Roboto Slab", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .dropdown {
+    margin-top: -12px;
+    position: absolute;
+    top: 50%;
+
+    .btn-dropdown {
+      color: $black;
+      font-size: 25px;
+    }
+    
+    .dropdown-menu {
+      display: none;
+    }
+  }
+
+
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
+}

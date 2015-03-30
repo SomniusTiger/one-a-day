@@ -403,18 +403,73 @@ th {
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f7f7f7;
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
 img {
   height: auto;
   width: 100%;
 }
 
+figure {
+  margin: 0;
+}
+
 .content {
+  padding: 0 20px;
   width: 100%;
 }
 
+header {
+  margin-bottom: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 72px;
+  max-width: 800px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+header h1#logo {
+  color: #222;
+  font-family: "Roboto Slab", "Helvetica Neue", Arial, sans-serif;
+  font-size: 22px;
+  margin: 0;
+}
+header h1#logo a {
+  text-decoration: none;
+}
+header h1#logo a:hover {
+  color: #484848;
+}
+header .description {
+  color: #888888;
+  font-family: "Roboto Slab", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+header .dropdown {
+  margin-top: -12px;
+  position: absolute;
+  top: 50%;
+}
+header .dropdown .btn-dropdown {
+  color: #222;
+  font-size: 25px;
+}
+header .dropdown .dropdown-menu {
+  display: none;
+}
+header nav ul {
+  list-style: none;
+  padding: 0;
+}
+
 .post {
-  max-width: 600px;
-  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 800px;
   width: 100%;
 }
 

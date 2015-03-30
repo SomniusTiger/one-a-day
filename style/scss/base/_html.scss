@@ -4,7 +4,16 @@
   @include box-sizing(border-box);
 }
 
+body {
+  background-color: $white;
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
 img {
   height: auto;
   width: 100%;
+}
+
+figure {
+  margin: 0;
 }

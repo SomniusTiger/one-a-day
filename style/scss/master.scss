@@ -3,16 +3,18 @@
 // Base
 @import "base/normalize";
 
+@import "base/variables";
 @import "base/mixins";
 
 @import "base/html";
 
 // Layout
 @import "layout/homepage";
+@import "layout/header";
 @import "layout/post";
 
 // Module
-@import "module/header";
+@import "module/buttons";
 
 // Responsive
 @import "responsive/homepage-respond";

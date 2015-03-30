@@ -2,7 +2,15 @@
 
 @mixin box-sizing($box-sizing: border-box) {
   -webkit-box-sizing: $box-sizing;
-  -moz-box-sizing: $box-sizing;
-  -o-box-sizing: $box-sizing;
-  box-sizing: $box-sizing;
+     -moz-box-sizing: $box-sizing;
+       -o-box-sizing: $box-sizing;
+          box-sizing: $box-sizing;
+}
+
+@mixin transition($transitions...) {
+  -webkit-transition: $transitions;
+     -moz-transition: $transitions;
+      -ms-transition: $transitions;
+       -o-transition: $transitions;
+          transition: $transitions;
 }

@@ -23,26 +23,35 @@
     a {color:{AccentColor}}
     {CustomCSS}
   </style>
+  <!-- Fonts -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
+
   <!-- Styles -->
 
-<style>/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}img{height:auto;width:100%}.content{width:100%}.post{max-width:600px;padding:0 20px;width:100%}</style>
+<style>/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}body{background-color:#f7f7f7;font-family:Roboto,"Helvetica Neue",Arial,sans-serif}img{height:auto;width:100%}figure{margin:0}.content{padding:0 20px;width:100%}header{margin-bottom:35px;margin-left:auto;margin-right:auto;margin-top:72px;max-width:800px;position:relative;text-align:center;width:100%}header h1#logo{color:#222;font-family:"Roboto Slab","Helvetica Neue",Arial,sans-serif;font-size:22px;margin:0}header h1#logo a{text-decoration:none}header h1#logo a:hover{color:#484848}header .description{color:#888;font-family:"Roboto Slab","Helvetica Neue",Arial,sans-serif;font-size:14px;font-weight:300}header .dropdown{margin-top:-12px;position:absolute;top:50%}header .dropdown .btn-dropdown{color:#222;font-size:25px}header .dropdown .dropdown-menu{display:none}header nav ul{list-style:none;padding:0}.post{margin:0 auto;max-width:800px;width:100%}</style>
 </head>
 <body>
 
   <header role="banner" class="header">
     {block:ShowTitle}<h1 id="logo"><a href="/">{Title}</a></h1>{/block:ShowTitle}
     {block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
-    <nav role="navigation">
-      <ul>
-        {block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
-        <li><a href="/archive">{lang:Archive}</a></li>
-        {block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
-      </ul>
-    </nav>
-    <form id="search" action="/search" method="get">
-      <input role="textbox" type="search" placeholder="{lang:Search}" name="q" value="{SearchQuery}">
-      <input role="button" type="submit" value="{lang:Search}">
-    </form>
+    <div class="dropdown">
+      <div class="btn-dropdown fa fa-bars"></div>
+        <div class="dropdown-menu">
+        <nav role="navigation">
+          <ul>
+            {block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
+            <li><a href="/archive">{lang:Archive}</a></li>
+            {block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
+          </ul>
+        </nav>
+        <form id="search" action="/search" method="get">
+          <input role="textbox" type="search" placeholder="{lang:Search}" name="q" value="{SearchQuery}">
+          <input role="button" type="submit" value="{lang:Search}">
+        </form>
+      </div>
+    </div>
   </header>
 
   <main role="main" class="content">
@@ -57,11 +66,6 @@
 
     {block:Posts}
     <article class="post {PostType} {TagsAsClasses}">
-      {block:Date}
-      {block:NewDayDate}<p>{DayOfWeek}, {Month} {DayOfMonth}, {Year}</p>{/block:NewDayDate}
-      {block:SameDayDate}<p>{DayOfWeek}, {Month} {DayOfMonth}, {Year}</p>{/block:SameDayDate}
-      {/block:Date}
-
       {block:Text}
           {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
           {block:Body}
@@ -157,11 +161,10 @@
       <div class="replies">{Replies}</div>
       {/block:Answer}
 
-      {block:IndexPage}
-      {LikeButton color="grey"}
-      {ReblogButton color="grey"}
-      <p><a href="{Permalink}" class="permalink">{lang:Permalink}</a></p>
-      {/block:IndexPage}
+      {block:Date}
+      {block:NewDayDate}<p>{DayOfWeek}, {Month} {DayOfMonth}, {Year}</p>{/block:NewDayDate}
+      {block:SameDayDate}<p>{DayOfWeek}, {Month} {DayOfMonth}, {Year}</p>{/block:SameDayDate}
+      {/block:Date}
 
     </article>
     {/block:Posts}
@@ -186,26 +189,10 @@
     </div>
     {/block:Pagination}
   </main>
-  <footer class="footer">
-    <small>{block:ShowTitle}{Title} {/block:ShowTitle}&copy; {CopyrightYears}</small>
-  </footer>
 
   <!-- Script -->
   <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
 
-<script type="text/javascript">// Main JS file
-
-var oneaday = new function() {
-  var self = this;
-
-  this.init = function() {
-    // Functions to run on init
-  };
-}
-
-$(function() {
-  oneaday.init();
-});
-</script>
+<script type="text/javascript">!function(a){"use strict";a.fn.fitVids=function(b){var c={customSelector:null,ignore:null};if(!document.getElementById("fit-vids-style")){var d=document.head||document.getElementsByTagName("head")[0],e=".fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}",f=document.createElement("div");f.innerHTML='<p>x</p><style id="fit-vids-style">'+e+"</style>",d.appendChild(f.childNodes[1])}return b&&a.extend(c,b),this.each(function(){var b=['iframe[src*="player.vimeo.com"]','iframe[src*="youtube.com"]','iframe[src*="youtube-nocookie.com"]','iframe[src*="kickstarter.com"][src*="video.html"]',"object","embed"];c.customSelector&&b.push(c.customSelector);var d=".fitvidsignore";c.ignore&&(d=d+", "+c.ignore);var e=a(this).find(b.join(","));e=e.not("object object"),e=e.not(d),e.each(function(b){var c=a(this);if(!(c.parents(d).length>0||"embed"===this.tagName.toLowerCase()&&c.parent("object").length||c.parent(".fluid-width-video-wrapper").length)){c.css("height")||c.css("width")||!isNaN(c.attr("height"))&&!isNaN(c.attr("width"))||(c.attr("height",9),c.attr("width",16));var e="object"===this.tagName.toLowerCase()||c.attr("height")&&!isNaN(parseInt(c.attr("height"),10))?parseInt(c.attr("height"),10):c.height(),f=isNaN(parseInt(c.attr("width"),10))?c.width():parseInt(c.attr("width"),10),g=e/f;if(!c.attr("id")){var h="fitvid"+b;c.attr("id",h)}c.wrap('<div class="fluid-width-video-wrapper"></div>').parent(".fluid-width-video-wrapper").css("padding-top",100*g+"%"),c.removeAttr("height").removeAttr("width")}})})}}(window.jQuery||window.Zepto);var oneaday=new function(){var a=this;this.init=function(){a.fitvidsInit()},this.fitvidsInit=function(){$(".video-player").fitVids()}};$(function(){oneaday.init()});</script>
 </body>
 </html>

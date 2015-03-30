@@ -43,6 +43,7 @@ module.exports = function(grunt) {
     concat: {
       app: {
         src: [
+          'script/lib/jquery.fitvids.js',
           'script/master.js'
         ],
         dest: 'script/master.min.js'
@@ -70,7 +71,7 @@ module.exports = function(grunt) {
             inline: 'style/css/master.min.css'
           },
           scripts: {
-            main: 'script/master.js'
+            main: 'script/master.min.js'
           }
         }
       }
