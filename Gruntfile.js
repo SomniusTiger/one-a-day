@@ -44,6 +44,7 @@ module.exports = function(grunt) {
       app: {
         src: [
           'script/lib/jquery.fitvids.js',
+          'script/lib/transit.min.js',
           'script/master.js'
         ],
         dest: 'script/master.min.js'
