@@ -16,10 +16,20 @@
       margin: auto;
       min-height: none;
       min-width: 100%;
+      padding: 10px 0 10px;
       position: absolute;
       right: -100%;
       top: -100%;
+      z-index: 2;
     }
+  }
+
+  .date {
+    @include opacity(0);
+    bottom: 30px;
+    margin: 0;
+    position: absolute;
+    z-index: 1;
   }
 
   &.photo {

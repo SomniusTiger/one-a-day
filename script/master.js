@@ -38,6 +38,7 @@ var oneaday = new function() {
       var post = this;
 
       $(post).stop();
+      $(post).find('.date').stop();
 
       if ( !$(post).hasClass('active') ) {
         self.imageExpand(post);
@@ -68,7 +69,8 @@ var oneaday = new function() {
     // Collapse all other posts after expanding
     self.imageCollapse( $('.post') );
     // Expand clicked post
-    $(post).transition({'padding-bottom': newImageHeight, 'max-width': 1280, 'margin': '40px auto'}, { duration: 300, easing: 'easeOutQuint', queue: false });
+    $(post).transition({'padding-bottom': (newImageHeight + 80), 'max-width': 1280, 'margin': '40px auto 60px'}, { duration: 300, easing: 'easeOutQuint', queue: false });
+    $(post).find('.date').transition({'opacity': 1, 'bottom': 0}, { duration: 600, easing: 'ease', queue: false });
     $(post).addClass('active');
   };
 
@@ -82,6 +84,7 @@ var oneaday = new function() {
       // Collapse specified post
       $(post).transition({'padding-bottom': '42.4137931%', 'max-width': 870, 'margin': '0 auto'}, { duration: 300, easing: 'easeOutQuint', queue: false });
     }
+    $(post).find('.date').transition({'opacity': 0, 'bottom': '30px'}, { duration: 600, easing: 'ease', queue: false });
     $(post).removeClass('active');
   };
 }
