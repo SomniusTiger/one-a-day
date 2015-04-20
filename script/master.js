@@ -1,14 +1,15 @@
 // Main JS file
 
 var oneaday = new function() {
-  var self = this,
-      pageHeight,
-      pageWidth;
+  var self = this;
+  var pageHeight;
+  var pageWidth;
 
   this.init = function() {
     // Functions to run on init
     self.fitvidsInit();
     self.imageToggle();
+    self.keyboardNav();
   };
 
   this.getCurrentWindowSize = function() {
@@ -26,16 +27,17 @@ var oneaday = new function() {
     self.getCurrentWindowSize();
 
     if (pageWidth >= 870) {
-      $('.post').css({'padding-bottom': 369});
+      $('.post').not('.active').css({'padding-bottom': 369});
     }
     else {
-      $('.post').css({'padding-bottom': '42.4137931%'});
+      $('.post').not('.active').css({'padding-bottom': '42.4137931%'});
     }
   };
 
   this.imageToggle = function() {
     $('.post.photo').on('click', function() {
-      var post = this;
+      var post = this,
+        activePost = this;
 
       $(post).stop();
       $(post).find('.date').stop();
@@ -51,6 +53,7 @@ var oneaday = new function() {
   };
 
   this.imageExpand = function(post) {
+    console.log("Expanding");
     self.getCurrentWindowSize();
     var currImageWidth = $(post).find('img').width();
     var currImageHeight = $(post).find('img').height();
@@ -87,14 +90,32 @@ var oneaday = new function() {
     $(post).find('.date').transition({'opacity': 0, 'bottom': '30px'}, { duration: 600, easing: 'ease', queue: false });
     $(post).removeClass('active');
   };
+
+  this.keyboardNav = function() {
+    window.addEventListener('keydown', function(e) {
+      if(e.keycode == 38) {
+        console.log('up');
+        // Up
+        e.preventDefault();
+        self.imageExpand( $(activePost).prev() );
+      }
+      if(e.keycode == 39) {
+        // Down
+        e.preventDefault();
+        self.imageExpand( $(activePost).next() );
+      }
+    }, false);
+  };
 }
 
 // jQuery Init
 $(function() {
   oneaday.init();
+  var activePost = $('.post').first();
 });
 
 // jQuery Window Resize
 $(window).resize(function() {
   oneaday.imageHeight();
+  oneaday.imageCollapse( $('.post') );
 });
