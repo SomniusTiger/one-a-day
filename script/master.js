@@ -4,6 +4,7 @@ var oneaday = new function() {
   var self = this;
   var pageHeight;
   var pageWidth;
+  var activePost;
 
   this.init = function() {
     // Functions to run on init
@@ -36,8 +37,8 @@ var oneaday = new function() {
 
   this.imageToggle = function() {
     $('.post.photo').on('click', function() {
-      var post = this,
-        activePost = this;
+      var post = this;
+      activePost = this;
 
       $(post).stop();
       $(post).find('.date').stop();
@@ -93,16 +94,28 @@ var oneaday = new function() {
 
   this.keyboardNav = function() {
     window.addEventListener('keydown', function(e) {
-      if(e.keycode == 38) {
-        console.log('up');
-        // Up
-        e.preventDefault();
-        self.imageExpand( $(activePost).prev() );
+      console.log(e.keyCode);
+      if (activePost) {
+        if(e.keyCode == 38) {
+          console.log('up');
+          // Up
+          e.preventDefault();
+          self.imageExpand( $(activePost).prev() );
+          activePost = $(activePost).prev();
+        }
+        if(e.keyCode == 40) {
+          // Down
+          e.preventDefault();
+          self.imageExpand( $(activePost).next() );
+          activePost = $(activePost).next();
+        }
       }
-      if(e.keycode == 39) {
-        // Down
-        e.preventDefault();
-        self.imageExpand( $(activePost).next() );
+      else {
+        if(e.keyCode == 40) {
+          // Down
+          self.imageExpand( $('.post').first() );
+          activePost = $('.post').first();
+        }
       }
     }, false);
   };
@@ -111,7 +124,6 @@ var oneaday = new function() {
 // jQuery Init
 $(function() {
   oneaday.init();
-  var activePost = $('.post').first();
 });
 
 // jQuery Window Resize
