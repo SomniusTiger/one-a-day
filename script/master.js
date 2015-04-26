@@ -10,6 +10,7 @@ var oneaday = new function() {
     // Functions to run on init
     self.fitvidsInit();
     self.imageToggle();
+    self.getPostPos();
     self.keyboardNav();
   };
 
@@ -54,7 +55,6 @@ var oneaday = new function() {
   };
 
   this.imageExpand = function(post) {
-    console.log("Expanding");
     self.getCurrentWindowSize();
     var currImageWidth = $(post).find('img').width();
     var currImageHeight = $(post).find('img').height();
@@ -94,30 +94,49 @@ var oneaday = new function() {
 
   this.keyboardNav = function() {
     window.addEventListener('keydown', function(e) {
-      console.log(e.keyCode);
       if (activePost) {
-        if(e.keyCode == 38) {
-          console.log('up');
-          // Up
-          e.preventDefault();
-          self.imageExpand( $(activePost).prev() );
-          activePost = $(activePost).prev();
+        if(e.keyCode == 38 || e.keyCode == 37) {
+          // Up or Left
+          if ( $(activePost).prev().length > 0 ) {
+            e.preventDefault();
+            self.imageExpand( $(activePost).prev() );
+            activePost = $(activePost).prev();
+            self.scrollToPost(activePost);
+          }
         }
-        if(e.keyCode == 40) {
-          // Down
-          e.preventDefault();
-          self.imageExpand( $(activePost).next() );
-          activePost = $(activePost).next();
+        if(e.keyCode == 40 || e.keyCode == 39) {
+          // Down or Right
+          if ( $(activePost).next().length > 0 ) {
+            e.preventDefault();
+            self.imageExpand( $(activePost).next() );
+            activePost = $(activePost).next();
+            self.scrollToPost(activePost);
+          }
         }
       }
       else {
-        if(e.keyCode == 40) {
-          // Down
-          self.imageExpand( $('.post').first() );
-          activePost = $('.post').first();
+        if(e.keyCode == 40 || e.keyCode == 39) {
+          // Down or Right to first post
+          if ( $('.post').first().length > 0 ) {
+            e.preventDefault();
+            self.imageExpand( $('.post').first() );
+            activePost = $('.post').first();
+            self.scrollToPost(activePost);
+          }
         }
       }
     }, false);
+  };
+
+  this.getPostPos = function() {
+    $('.post').each(function() {
+      $(this).attr('data-offset-top', $(this).offset().top);
+    });
+  };
+
+  this.scrollToPost = function(post) {
+    // Scroll to that post
+    $('body, html').animate({ scrollTop: $(post).attr('data-offset-top') });
   };
 }
 
