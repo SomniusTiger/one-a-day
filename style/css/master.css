@@ -457,17 +457,44 @@ header .description {
   font-size: 14px;
   font-weight: 300;
 }
+header nav {
+  border-top: solid 1px #e6e6e6;
+  margin-top: 20px;
+  width: 100%;
+}
+header nav ul li a {
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
+}
+header nav ul li a:hover {
+  color: #848484;
+}
 header .dropdown {
   margin-top: -12px;
   position: absolute;
   top: 50%;
+  z-index: 5;
 }
 header .dropdown .btn-dropdown {
   color: #222;
+  cursor: pointer;
   font-size: 25px;
+  user-select: none;
 }
 header .dropdown .dropdown-menu {
+  background-color: #fff;
   display: none;
+  padding: 20px;
+  position: absolute;
+  min-width: 300px;
+}
+header .dropdown .dropdown-menu ul {
+  text-align: left;
+}
+header .dropdown .dropdown-menu.show {
+  display: block;
 }
 header nav ul {
   list-style: none;

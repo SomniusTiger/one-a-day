@@ -14,6 +14,7 @@ var oneaday = new function() {
     self.getPostPos();
     self.keyboardNav();
     self.infiniteScroll();
+    self.dropdown();
   };
 
   this.getCurrentWindowSize = function() {
@@ -159,6 +160,17 @@ var oneaday = new function() {
 
   this.onInfiniteScroll = function() {
     self.getPostPos();
+  };
+
+  this.dropdown = function() {
+    $('.btn-dropdown').click(function() {
+      if ( !$('.dropdown-menu').hasClass('show') ) {
+        $('.dropdown-menu').addClass('show');
+      }
+      else {
+        $('.dropdown-menu').removeClass('show');
+      }
+    });
   };
 }
 

@@ -38,18 +38,50 @@ header {
     font-weight: 300;
   }
 
+  nav {
+    border-top: solid 1px #e6e6e6;
+    margin-top: 20px;
+    width: 100%;
+    
+    ul li a {
+      color: $grey-lt;
+      font-size: 14px;
+      font-weight: 300;
+      text-decoration: none;
+
+      &:hover {
+        color: darken($grey-lt, 15%);
+      }
+    }
+  }
+
   .dropdown {
     margin-top: -12px;
     position: absolute;
     top: 50%;
+    z-index: 5;
 
     .btn-dropdown {
       color: $black;
+      cursor: pointer;
       font-size: 25px;
+      user-select: none;
     }
     
     .dropdown-menu {
+      background-color: $white-pure;
       display: none;
+      padding: 20px;
+      position: absolute;
+      min-width: 300px;
+
+      ul {
+        text-align: left;
+      }
+
+      &.show {
+        display: block;
+      }
     }
   }
 
