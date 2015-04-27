@@ -2,9 +2,10 @@
 
 var oneaday = new function() {
   var self = this;
-  var pageHeight;
-  var pageWidth;
+  var windowHeight;
+  var windowWidth;
   var activePost;
+  var currPage = 1;
 
   this.init = function() {
     // Functions to run on init
@@ -12,12 +13,13 @@ var oneaday = new function() {
     self.imageToggle();
     self.getPostPos();
     self.keyboardNav();
+    self.infiniteScroll();
   };
 
   this.getCurrentWindowSize = function() {
     // Get page width & height
-    pageHeight =  window.innerHeight || window.documentElement.clientHeight || window.body.clientHeight;
-    pageWidth =   window.innerWidth  || window.documentElement.clientWidth  || window.body.clientWidth;
+    windowHeight =  window.innerHeight || window.documentElement.clientHeight || window.body.clientHeight;
+    windowWidth =   window.innerWidth  || window.documentElement.clientWidth  || window.body.clientWidth;
   };
 
   this.fitvidsInit = function() {
@@ -28,7 +30,7 @@ var oneaday = new function() {
     // Change padding sizes on browser width
     self.getCurrentWindowSize();
 
-    if (pageWidth >= 870) {
+    if (windowWidth >= 870) {
       $('.post').not('.active').css({'padding-bottom': 369});
     }
     else {
@@ -37,7 +39,7 @@ var oneaday = new function() {
   };
 
   this.imageToggle = function() {
-    $('.post.photo').on('click', function() {
+    $('#main').on('click', '.post.photo', function() {
       var post = this;
       activePost = this;
 
@@ -63,11 +65,11 @@ var oneaday = new function() {
     var newImageHeight;
 
     // Get height of image in post
-    if (pageWidth >= 1280) {
+    if (windowWidth >= 1280) {
       newImageWidth = 1280;
     }
     else {
-      newImageWidth = pageWidth;
+      newImageWidth = windowWidth;
     }
     newImageHeight = Math.round( (currImageHeight * newImageWidth)/currImageWidth );
     // Collapse all other posts after expanding
@@ -80,7 +82,7 @@ var oneaday = new function() {
 
   this.imageCollapse = function(post) {
     self.getCurrentWindowSize();
-    if (pageWidth >= 870) {
+    if (windowWidth >= 870) {
       // Collapse specified post
       $(post).transition({'padding-bottom': '369px', 'max-width': 870, 'margin': '0 auto'}, { duration: 300, easing: 'easeOutQuint', queue: false });
     }
@@ -136,7 +138,27 @@ var oneaday = new function() {
 
   this.scrollToPost = function(post) {
     // Scroll to that post
+    $('body, html').stop();
     $('body, html').animate({ scrollTop: $(post).attr('data-offset-top') });
+  };
+
+  this.infiniteScroll = function() {
+    $('#main').infinitescroll({
+      loading: {
+        finished: self.onInfiniteScroll,
+        finishedMsg: "<p class='endmessage'>No more content to show.</p>",
+        img: "",
+        msg: null,
+        msgText: ""
+      },
+      navSelector: ".pagination",
+      nextSelector: ".pagination a.next",
+      itemSelector: ".post"
+    });
+  };
+
+  this.onInfiniteScroll = function() {
+    self.getPostPos();
   };
 }
 
@@ -149,4 +171,5 @@ $(function() {
 $(window).resize(function() {
   oneaday.imageHeight();
   oneaday.imageCollapse( $('.post') );
+  oneaday.getPostPos();
 });

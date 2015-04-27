@@ -423,6 +423,10 @@ figure {
   width: 100%;
 }
 
+#infscr-loading {
+  display: none !important;
+}
+
 header {
   margin-bottom: 35px;
   margin-left: auto;

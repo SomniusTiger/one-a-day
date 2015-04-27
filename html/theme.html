@@ -55,7 +55,7 @@
     </div>
   </header>
 
-  <main role="main" class="content">
+  <main id="main" role="main" class="content">
     {block:SearchPage}
     <div class="result">
       <p>{lang:Found SearchResultCount results for SearchQuery 2}</p>
@@ -177,19 +177,19 @@
     </div>
     {/block:PermalinkPagination}
 
-    {block:Pagination}
-    <div class="pagination">
-      {block:PreviousPage}<a class="prev" href="{PreviousPage}">{lang:Previous}</a>{/block:PreviousPage}
-
-      {block:JumpPagination length="5"}
-        {block:CurrentPage}<span class="current-page">{PageNumber}</span>{/block:CurrentPage}
-        {block:JumpPage}<a class="jump-page" href="{URL}">{PageNumber}</a>{/block:JumpPage}
-      {/block:JumpPagination}
-
-      {block:NextPage}<a class="next" href="{NextPage}">{lang:Next}</a>{/block:NextPage}
-    </div>
-    {/block:Pagination}
   </main>
+  {block:Pagination}
+  <div class="pagination">
+    {block:PreviousPage}<a class="prev" href="{PreviousPage}">{lang:Previous}</a>{/block:PreviousPage}
+
+    {block:JumpPagination length="5"}
+      {block:CurrentPage}<span class="current-page">{PageNumber}</span>{/block:CurrentPage}
+      {block:JumpPage}<a class="jump-page" href="{URL}">{PageNumber}</a>{/block:JumpPage}
+    {/block:JumpPagination}
+
+    {block:NextPage}<a class="next" href="{NextPage}">{lang:Next}</a>{/block:NextPage}
+  </div>
+  {/block:Pagination}
 
   <!-- Script -->
   <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
