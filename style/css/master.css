@@ -460,12 +460,17 @@ header .description {
 header nav {
   border-top: solid 1px #e6e6e6;
   margin-top: 20px;
+  text-align: center;
   width: 100%;
+}
+header nav ul li {
+  display: inline-block;
 }
 header nav ul li a {
   color: #aaa;
   font-size: 14px;
   font-weight: 300;
+  padding: 0 20px;
   text-decoration: none;
 }
 header nav ul li a:hover {

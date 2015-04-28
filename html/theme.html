@@ -15,6 +15,9 @@
       https://www.tumblr.com/docs/en/custom_themes#theme-options
      <meta name="text:Twitter Username" content=""/>
      -->
+    <meta name="text:Email" content=""/>
+    <meta name="text:Portfolio" content=""/>
+
   {/block:Hidden}
   <style type="text/css">
     /*Tumblr Global Appearance */
@@ -41,6 +44,8 @@
       <ul>
         {block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
         <li><a href="/archive">{lang:Archive}</a></li>
+        <li><a target="_blank" href="{text:Portfolio}">Portfolio</a></li>
+        <li><a href="mailto:{text:Email}">Contact</a></li>
         {block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
       </ul>
     </nav>
