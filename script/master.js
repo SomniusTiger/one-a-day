@@ -49,7 +49,6 @@ var oneaday = new function() {
 
       if ( !$(post).hasClass('active') ) {
         self.imageExpand(post);
-        self.scrollToPost(post);
       }
 
       else {
@@ -87,6 +86,8 @@ var oneaday = new function() {
     $(post).transition({'padding-bottom': newImageHeight + 80, 'max-width': newImageWidth, 'margin': '40px auto'}, { duration: 300, easing: 'easeOutQuint', queue: false });
     $(post).find('.date').transition({'opacity': 1, 'bottom': 0}, { duration: 600, easing: 'ease', queue: false });
     $(post).addClass('active');
+
+    self.scrollToPost(post, newImageWidth, newImageHeight);
   };
 
   this.imageCollapse = function(post) {
@@ -112,7 +113,6 @@ var oneaday = new function() {
             e.preventDefault();
             self.imageExpand( $(activePost).prev() );
             activePost = $(activePost).prev();
-            self.scrollToPost(activePost);
           }
         }
         if(e.keyCode == 40 || e.keyCode == 39) {
@@ -121,7 +121,6 @@ var oneaday = new function() {
             e.preventDefault();
             self.imageExpand( $(activePost).next() );
             activePost = $(activePost).next();
-            self.scrollToPost(activePost);
           }
         }
       }
@@ -132,7 +131,6 @@ var oneaday = new function() {
             e.preventDefault();
             self.imageExpand( $('.post').first() );
             activePost = $('.post').first();
-            self.scrollToPost(activePost);
           }
         }
       }
@@ -140,22 +138,34 @@ var oneaday = new function() {
   };
 
   this.getPostPos = function() {
-    $('.post').each(function() {
-      $(this).attr('data-offset-top', $(this).offset().top);
-    });
+    if ( $('.post').hasClass('active') ) {
+      // Get difference in height
+      heightDiff = ($('.post.active').outerHeight() + 80) - $('.post').not('.active').first().outerHeight();
+      $('.post.active').nextAll('.post').each(function() {
+        $(this).attr('data-offset-top', $(this).offset().top - heightDiff);
+      });
+    }
+    else {
+      $('.post').each(function() {
+        $(this).attr('data-offset-top', $(this).offset().top);
+      });
+    }
   };
 
-  this.scrollToPost = function(post) {
-    // Scroll to that post
+  this.scrollToPost = function(post, postWidth, postHeight) {
+    self.getCurrentWindowSize();
+    // Scroll to that post, center post on the page
+    var sizeDiff = (windowHeight - (postHeight + 200) ) / 2;
+    var scrollDiff = $(post).attr('data-offset-top') - sizeDiff;
     $('body, html').stop();
-    $('body, html').animate({ scrollTop: $(post).attr('data-offset-top') });
+    $('body, html').animate({ scrollTop: scrollDiff });
   };
 
   this.infiniteScroll = function() {
     $('#main').infinitescroll({
       loading: {
         finished: self.onInfiniteScroll,
-        finishedMsg: "<p class='endmessage'>No more content to show.</p>",
+        finishedMsg: "",
         img: "",
         msg: null,
         msgText: ""
