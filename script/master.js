@@ -49,6 +49,7 @@ var oneaday = new function() {
 
       if ( !$(post).hasClass('active') ) {
         self.imageExpand(post);
+        self.scrollToPost(post);
       }
 
       else {
@@ -66,17 +67,24 @@ var oneaday = new function() {
     var newImageHeight;
 
     // Get height of image in post
-    if (windowWidth >= 1280) {
+    if (windowWidth >= 1320) {
       newImageWidth = 1280;
     }
     else {
       newImageWidth = windowWidth;
     }
     newImageHeight = Math.round( (currImageHeight * newImageWidth)/currImageWidth );
+
+    // Make sure expanded image height does not become larger than window height
+    if (newImageHeight > windowHeight - 200) {
+      newImageHeight = windowHeight - 200;
+      newImageWidth = Math.round( (newImageHeight * currImageWidth)/currImageHeight );
+    }
+
     // Collapse all other posts after expanding
     self.imageCollapse( $('.post') );
     // Expand clicked post
-    $(post).transition({'padding-bottom': (newImageHeight + 80), 'max-width': 1280, 'margin': '40px auto 60px'}, { duration: 300, easing: 'easeOutQuint', queue: false });
+    $(post).transition({'padding-bottom': newImageHeight + 80, 'max-width': newImageWidth, 'margin': '40px auto'}, { duration: 300, easing: 'easeOutQuint', queue: false });
     $(post).find('.date').transition({'opacity': 1, 'bottom': 0}, { duration: 600, easing: 'ease', queue: false });
     $(post).addClass('active');
   };
