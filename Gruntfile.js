@@ -48,14 +48,14 @@ module.exports = function(grunt) {
           'script/lib/jquery.infinitescroll.js',
           'script/master.js'
         ],
-        dest: 'script/master.min.js'
+        dest: 'script/master.concat.js'
       }
     },
 
     uglify: {
       app: {
         files: {
-          'script/master.min.js': ['script/master.min.js']
+          'script/master.min.js': ['script/master.concat.js']
         }
       }
     },
